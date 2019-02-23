@@ -12,6 +12,6 @@ import (
 
 func main(){
 
-	http.HandleFunc("/alltasks" , controllers.AllTasks)
+	http.HandleFunc("/alltasks" , controllers.GetAllTasks)
 	http.ListenAndServe(":8080", nil)
 }

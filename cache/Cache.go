@@ -21,6 +21,49 @@ func init(){
 }
 
 
-func Create(key string , value string){
+func Create(set string , value string) error{
+	conn := Cache.Get()
+	defer conn.Close()
+
+	_, err := conn.Do("SADD", set, string(value))
+	if err != nil {
+		return err
+	}
+
+	return nil
+
+}
+
+func GetAll(set string) ([]string , error){
+
+	conn := Cache.Get()
+	defer conn.Close()
+	allValues , err := redis.Values(conn.Do("SMEMBERS", set))
+	if err != nil {
+		return nil , err
+	}
+	strings := make([]string , len(allValues))
 	
+	for i, val := range allValues {
+		var v, ok = val.([]byte)
+		if ok {
+			strings[i] = string(v)
+		}
+	}
+
+	return strings , nil
+}
+
+func Delete(set string , value string) error {
+	conn := Cache.Get()
+	defer conn.Close()
+
+
+	_,err := conn.Do("SREM" , set , value) 
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
