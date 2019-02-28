@@ -10,6 +10,7 @@ import (
 
 func HandleTask(w http.ResponseWriter, r *http.Request) {
 
+
 	fmt.Println(r.Method == "POST")
 	if r.Method == "POST" {
 		fmt.Println("Method is equal to post")
