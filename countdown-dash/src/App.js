@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Card from './Card'
 import './App.css';
+import { futimesSync } from 'fs';
+import { format } from 'path';
 
 class App extends Component {
 
@@ -17,19 +19,24 @@ class App extends Component {
    
     fetch('http://localhost:8080/tasks',{
       method : 'GET',
-      crossDomain :true,
-      headers : { 'Access-Control-Allow-Origin':'*'}
     })
     .then(results => {
       console.log("Fetching data")
-      console.log(results.json())
-      return results.json();
+      return results.json()
+    })
+    .then(data => {
+      this.setState({
+        tasks :data
+      })
     })
   }
+
   render() {
+    console.log("Render called")
     const items = []
-    for (var i = 0 ; i < 5 ; i++){
-        items.push(<Card text={"Task  : " + i } deadline={i * 100}/>)
+    console.log(this.state.tasks.length)
+    for (var i = 0 ; i < this.state.tasks.length ; i++){
+        items.push(<Card text={this.state.tasks[i].task} deadline={this.state.tasks[i].deadline}/>)
     }
     return (
      <div className="body-css">

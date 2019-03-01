@@ -10,6 +10,7 @@ import (
 
 func HandleTask(w http.ResponseWriter, r *http.Request) {
 
+	enableCors(&w)
 
 	fmt.Println(r.Method == "POST")
 	if r.Method == "POST" {
@@ -42,6 +43,8 @@ func HandleTask(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAllTasks(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
+
 	tasks, err := services.GetAllTasks()
 
 	if err != nil {
@@ -62,3 +65,6 @@ func GetAllTasks(w http.ResponseWriter, r *http.Request) {
 }
 
 //marshal json
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
