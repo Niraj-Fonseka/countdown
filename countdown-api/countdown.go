@@ -4,13 +4,11 @@ import (
 	"countdown/countdown-api/controllers"
 	"fmt"
 	"net/http"
-//	"github.com/rs/cors"
-
+	//	"github.com/rs/cors"
 )
 
 func main() {
-    //mux := http.NewServeMux()
-
+	//mux := http.NewServeMux()
 	fmt.Println("running server")
 	http.HandleFunc("/tasks", controllers.GetAllTasks)
 	http.HandleFunc("/task", controllers.HandleTask)
@@ -18,5 +16,5 @@ func main() {
 
 	//handler := cors.Default().Handler(mux)
 
-	http.ListenAndServe(":8080",nil)
+	http.ListenAndServe(":8080", nil)
 }

@@ -1,7 +1,9 @@
 package requests
 
+import "github.com/jinzhu/gorm"
 
 type Task struct {
-	Task string  `json:"task"`
-	Deadline int `json:"deadline"`
+	gorm.Model
+	Task     string `json:"task"`
+	Deadline int    `json:"deadline"`
 }

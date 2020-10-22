@@ -23,7 +23,7 @@ func HandleTask(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		err = services.CreateNewTask(tsk)
+		err = services.CreateNewTask(&tsk)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
