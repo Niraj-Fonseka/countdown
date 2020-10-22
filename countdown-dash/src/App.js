@@ -10,26 +10,33 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      tasks : [],
+      tasks : []    
     };
+
   }
 
 
+
   componentDidMount(){
-   
+
+    setInterval(() =>
+
     fetch('http://localhost:8080/tasks',{
       method : 'GET',
     })
+
     .then(results => {
       console.log("Fetching data")
       return results.json()
     })
     .then(data => {
       this.setState({
-        tasks :data
+        tasks :data,
+        time: Date.now()
       })
-    })
+    }), 1000)
   }
+
 
   render() {
     console.log("Render called")
@@ -40,7 +47,9 @@ class App extends Component {
     }
     return (
      <div className="body-css">
-      {items}
+      {items.sort(function(a,b){
+        return a.props.deadline-b.props.deadline;
+      })}
     </div>
     );
   }

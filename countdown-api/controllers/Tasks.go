@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func HandleTask(w http.ResponseWriter, r *http.Request) {
@@ -14,7 +15,6 @@ func HandleTask(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(r.Method == "POST")
 	if r.Method == "POST" {
-		fmt.Println("Method is equal to post")
 		decoder := json.NewDecoder(r.Body)
 		var tsk requests.Task
 		err := decoder.Decode(&tsk)
@@ -46,6 +46,10 @@ func GetAllTasks(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
 
 	tasks, err := services.GetAllTasks()
+
+	for i, t := range tasks {
+		tasks[i].Deadline = t.Timestamp - time.Now().Unix()
+	}
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

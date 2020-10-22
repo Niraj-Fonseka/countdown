@@ -59,7 +59,7 @@ class Timer extends Component {
         return(
 
           <div className="time-card">
-            <span style={{"color": "red" , "fontSize" : 30}}>{this.state.time.h} : {this.state.time.m} : {this.state.time.s} </span>
+            <span style={{"color": "red" , "fontSize" : 30}}>{this.state.time.h} H : {this.state.time.m} M : {this.state.time.s} S</span>
           </div>
 
     
