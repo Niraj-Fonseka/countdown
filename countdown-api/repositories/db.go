@@ -65,7 +65,7 @@ func CreateTask(t *requests.Task) error {
 func GetTasks() ([]requests.Task, error) {
 	var tasks []requests.Task
 
-	if err := DB.Find(&tasks).Error; err != nil {
+	if err := DB.Order("timestamp asc").Find(&tasks).Error; err != nil {
 		return tasks, err
 	}
 
