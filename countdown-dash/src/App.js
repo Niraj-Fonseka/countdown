@@ -4,7 +4,7 @@ import Display from './Display'
 import './App.css';
 import axios from 'axios';
 
-function AppTwo() {
+function App() {
     const [tasks , setItems ] = useState([])
 
     useEffect(() => {
@@ -61,4 +61,4 @@ function generateCountdown(deadline){
   return <div>{hours + ' H :' + minutes + ' M :' + seconds + ' S' }</div>
 }
 
-export default AppTwo;
+export default App;

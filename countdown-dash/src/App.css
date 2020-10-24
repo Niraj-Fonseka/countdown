@@ -7,7 +7,7 @@
 }
 
 
-.body-css {
+.display {
   min-height: 100%;
   background-color: brown;
 }
@@ -33,5 +33,6 @@
   padding-top: 10px;
   font-size: 25px;
 }
+
 @keyframes blink { 0%{ background-color:red; } 100%{ background-color:green; } }
 
