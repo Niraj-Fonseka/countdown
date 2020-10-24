@@ -48,6 +48,12 @@ func GetAllTasks(w http.ResponseWriter, r *http.Request) {
 	tasks, err := services.GetAllTasks()
 
 	for i, t := range tasks {
+		diff := t.Timestamp - time.Now().Unix()
+		if diff < 0 {
+			tasks[i].Deadline = 0
+			continue
+		}
+
 		tasks[i].Deadline = t.Timestamp - time.Now().Unix()
 	}
 

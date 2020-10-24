@@ -12,8 +12,8 @@
   background-color: brown;
 }
 
-.card-css {
-  height : 100px;
+.card {
+  height : 120px;
   background-color: black;
   color: white;
   margin-bottom: 2px;
@@ -23,6 +23,15 @@
   font-family: "Courier New" , monospace;
 }
 
-.time-card {
+.countdown {
   font-family: 'Orbitron', sans-serif;
+  padding-top: 10px;
+  font-size: 35px;
 }
+
+.task{
+  padding-top: 10px;
+  font-size: 25px;
+}
+@keyframes blink { 0%{ background-color:red; } 100%{ background-color:green; } }
+

@@ -8,6 +8,7 @@ class Timer extends Component {
         this.state = { time: {}, seconds: this.props.timeSeconds };
         this.timer = 0;
 
+        console.log("Timeseconds " , this.props.timeSeconds);
         this.startTimer = this.startTimer.bind(this);
         this.countDown = this.countDown.bind(this);
       }
