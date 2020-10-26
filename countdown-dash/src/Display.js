@@ -5,7 +5,7 @@ import './App.css';
 function Display(props) {
    
     return ( 
-        <div className="body-css">
+        <div className="display">
         {props.tasks}
         </div>
     ); 

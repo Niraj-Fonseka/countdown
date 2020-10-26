@@ -1,7 +1,26 @@
 version: '3'
 
 services:
-  postgres-db:
+  app:
+    build:
+      context: ./countdown-api 
+      dockerfile: Dockerfile
+    environment:
+      - PORT=8080
+      - PG_USER=postgres
+      - PG_PASSWORD=secret
+      - PG_HOST=postgres_tasks
+      - PG_PORT=5432
+      - PG_DB=tasks
+    ports:
+      - "8080:8080" 
+    restart: unless-stopped
+    depends_on:
+      - postgres_tasks        
+    networks:
+      - tasks
+
+  postgres_tasks:
     image: postgres:latest
     container_name: postgres_tasks
     environment:
