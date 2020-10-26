@@ -4,7 +4,6 @@ import (
 	"countdown/countdown-api/controllers"
 	"log"
 	"net/http"
-	//	"github.com/rs/cors"
 )
 
 func main() {
