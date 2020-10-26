@@ -20,6 +20,21 @@ services:
     networks:
       - tasks
 
+  app-dash:
+    build:
+      context: ./countdown-dash 
+      dockerfile: Dockerfile
+    environment:
+      - REACT_APP_TAKS_API_URL=192.168.0.16:8080
+    ports:
+      - "80:3000" 
+    restart: unless-stopped
+    depends_on:
+      - app       
+    networks:
+      - tasks
+
+
   postgres_tasks:
     image: postgres:latest
     container_name: postgres_tasks
