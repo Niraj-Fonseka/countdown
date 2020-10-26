@@ -11,7 +11,7 @@ function App() {
 
       const fetchUsers = async () => {
         try {
-          const response = await axios.get("http://192.168.0.16:8080");
+          const response = await axios.get("http://192.168.0.16:8080/tasks");
           const items = []
           response.data.map((v,i)=>{
 
