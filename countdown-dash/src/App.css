@@ -17,6 +17,10 @@
   background-color: black;
   color: white;
   margin-bottom: 2px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
   font-size: 20px;
   padding: 3px;
   text-align: center;
@@ -25,6 +29,7 @@
 
 .countdown {
   font-family: 'Orbitron', sans-serif;
+  color: red;
   padding-top: 10px;
   font-size: 35px;
 }

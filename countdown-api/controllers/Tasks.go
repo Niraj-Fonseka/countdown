@@ -12,8 +12,6 @@ import (
 func HandleTask(w http.ResponseWriter, r *http.Request) {
 
 	enableCors(&w)
-
-	fmt.Println(r.Method == "POST")
 	if r.Method == "POST" {
 		decoder := json.NewDecoder(r.Body)
 		var tsk requests.Task
