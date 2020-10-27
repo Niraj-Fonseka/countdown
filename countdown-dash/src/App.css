@@ -6,7 +6,6 @@
 
 }
 
-
 .display {
   min-height: 100%;
   background-color: brown;
@@ -31,7 +30,7 @@
   font-family: 'Orbitron', sans-serif;
   color: red;
   padding-top: 10px;
-  font-size: 35px;
+  font-size: 50px;
 }
 
 .task{
