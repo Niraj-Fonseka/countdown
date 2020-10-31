@@ -26,3 +26,8 @@ func GetAllTasks() ([]requests.Task, error) {
 
 	return payload, nil
 }
+
+func DeleteTask(t *requests.DeleteTask) error {
+	return repositories.DeleteTask(t)
+
+}

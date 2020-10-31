@@ -33,6 +33,26 @@ func HandleTask(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+	} else if r.Method == "DELETE" {
+		decoder := json.NewDecoder(r.Body)
+		var tsk requests.DeleteTask
+
+		err := decoder.Decode(&tsk)
+		if err != nil {
+			http.Error(w, "Invalid request body", http.StatusBadRequest)
+			return
+		}
+
+		err = services.DeleteTask(&tsk)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		} else {
+
+			w.Header().Set("Content-Type", "application/json")
+			fmt.Fprintf(w, "Task deleted successfully")
+			return
+		}
 	} else {
 		http.Error(w, "Unsupported Request", http.StatusBadRequest)
 
