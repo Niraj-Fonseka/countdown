@@ -71,3 +71,26 @@ func GetTasks() ([]requests.Task, error) {
 
 	return tasks, err
 }
+
+func GetTask(taskID uint) (*requests.Task, error) {
+	var task requests.Task
+
+	if err := DB.Where("id = ?", taskID).First(&task).Error; err != nil {
+		return nil, err
+	}
+
+	return &task, nil
+}
+
+func DeleteTask(t *requests.DeleteTask) error {
+	task, err := GetTask(t.TaskID)
+	if err != nil {
+		return err
+	}
+
+	if err := DB.Delete(&task).Error; err != nil {
+		return err
+	}
+
+	return err
+}

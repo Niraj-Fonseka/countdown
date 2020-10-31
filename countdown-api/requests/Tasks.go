@@ -8,3 +8,7 @@ type Task struct {
 	Timestamp int64  `json:"timestamp"`
 	Deadline  int64  `json:"deadline" gorm:"-"`
 }
+
+type DeleteTask struct {
+	TaskID uint `json:"task_id"`
+}
