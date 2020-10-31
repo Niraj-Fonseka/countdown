@@ -8,35 +8,30 @@
 
 .display {
   min-height: 100%;
-  background-color: brown;
 }
 
-.card {
-  height : 120px;
-  background-color: black;
-  color: white;
-  margin-bottom: 2px;
-  border-radius: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  font-size: 20px;
-  padding: 3px;
-  text-align: center;
-  font-family: "Courier New" , monospace;
+.frame-wrapper{
+  margin-top: 15px;
+  animation: "blink 1s infinite";
+  margin-right: 10px;
+  margin-left: 10px;
+
 }
 
 .countdown {
   font-family: 'Orbitron', sans-serif;
   color: red;
   padding-top: 10px;
-  font-size: 50px;
+  font-size: 35px;
+  text-align: center;
 }
 
 .task{
   padding-top: 10px;
   font-size: 25px;
+  color: #26dafd;
+  text-align: center;
 }
 
-@keyframes blink { 0%{ background-color:red; } 100%{ background-color:green; } }
+@keyframes blink { 0%{ background-color:white; } 100%{ background-color:black; } }
 
