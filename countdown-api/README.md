@@ -86,3 +86,13 @@ response :
             "message" : "task deleted successfully"
         }
 
+```
+
+-----
+#### development setup 
+----
+* Startup the postgres db ( in the root directory )
+    `docker-compose up postgres_tasks`
+
+* Go to the countdown-api directory. And run 
+    `go run countdown.go` 
