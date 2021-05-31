@@ -17,7 +17,10 @@ func HandleTask(w http.ResponseWriter, r *http.Request) {
 		var tsk requests.Task
 		err := decoder.Decode(&tsk)
 		if err != nil {
-			http.Error(w, "Invalid request body", http.StatusBadRequest)
+			payload := map[string]string{
+				"message": "invalid request body",
+			}
+			http.Error(w, json.NewEncoder(w).Encode(payload), http.StatusBadRequest)
 			return
 		}
 
