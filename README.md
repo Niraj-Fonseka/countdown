@@ -1,6 +1,6 @@
-#THIS APPLICATION IS NO LONGER ACTIVELY MAINTAINED ( Visit : https://countd.xyz/ )
+# THIS APPLICATION IS NO LONGER ACTIVELY MAINTAINED ( Visit : https://countd.xyz/ )
 
-#countdown 
+# countdown 
 
 * Countdown is an application that allows you to visualize your tasks with a live countdown next to it. 
 
